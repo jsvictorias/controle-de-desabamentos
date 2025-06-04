@@ -1,8 +1,17 @@
+import { AppStackParamList } from "@/types/navigation";
+import { useNavigation } from "@react-navigation/native";
+import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import React, { useEffect, useRef } from "react";
 import { Animated } from "react-native";
 import * as S from "./styles";
 
+type WelcomeScreenNavigationProp = NativeStackNavigationProp<
+  AppStackParamList,
+  "Welcome"
+>;
+
 export const Welcome = () => {
+  const navigation = useNavigation<WelcomeScreenNavigationProp>();
   const translateY = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
@@ -39,7 +48,8 @@ export const Welcome = () => {
         indicadores de risco, como umidade do solo e inclinação do terreno,
         oferecendo alertas preventivos e ações de mitigação.
       </S.WelcomeText>
-      <S.WelcomeEnter>
+
+      <S.WelcomeEnter onPress={() => navigation.navigate("Login")}>
         ENTRAR
       </S.WelcomeEnter>
     </S.WelcomeContainer>
