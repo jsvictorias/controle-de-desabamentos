@@ -36,12 +36,3 @@ export const RegisterButton = styled.TouchableOpacity`
 export const RegisterButtonText = styled.Text`
   font-size: 18px;
 `;
-
-export const Link = styled.TouchableOpacity`
-  color: #007bff;
-  font-size: 14px;
-  text-decoration: none;
-  background-color: transparent;
-  font-weight: 600;
-  margin-bottom: 40px;
-`;

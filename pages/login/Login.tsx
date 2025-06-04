@@ -1,9 +1,18 @@
 import { Checkbox } from "@/components/checkbox/Checkbox";
 import { Input } from "@/components/input/Input";
+import { AppStackParamList } from "@/types/navigation";
+import { useNavigation } from "@react-navigation/native";
+import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import React from "react";
 import * as S from "./styles";
 
+type LoginScreenNavigationProp = NativeStackNavigationProp<
+  AppStackParamList,
+  "Login"
+>;
+
 export const Login = () => {
+  const navigation = useNavigation<LoginScreenNavigationProp>();
   return (
     <S.LoginContainer>
       <Input placeholder="Cadastro" secureTextEntry={false} />
@@ -11,15 +20,19 @@ export const Login = () => {
 
       <Checkbox label="Manter Login" />
 
-      <S.Link>Esqueceu a Senha?</S.Link>
-
       <S.Button>
         <S.ButtonText>Entrar</S.ButtonText>
       </S.Button>
 
       <S.RegisterText>Não tem cadastro?</S.RegisterText>
       <S.RegisterButton>
-        <S.RegisterButtonText>Cadastrar</S.RegisterButtonText>
+        <S.RegisterButtonText
+          onClick={() => {
+            navigation.navigate("Cadastro");
+          }}
+        >
+          Cadastrar
+        </S.RegisterButtonText>
       </S.RegisterButton>
     </S.LoginContainer>
   );
