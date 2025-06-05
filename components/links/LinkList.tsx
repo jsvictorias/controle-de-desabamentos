@@ -12,7 +12,7 @@ export const LinkList: FC<LinkListProps> = ({ url, text }) => {
       <TouchableOpacity onPress={() => handlePress(url)}>
         <Text
           style={{
-            color: "black",
+            color: "#4390DD",
             textDecorationLine: "none",
             marginBottom: 5,
           }}
