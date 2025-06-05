@@ -6,4 +6,5 @@ export type AppStackParamList = {
   Actions: undefined;
   Menu: undefined;
   History: undefined;
+  Visualizer: undefined;
 };

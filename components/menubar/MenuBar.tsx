@@ -31,7 +31,9 @@ export const MenuBar = () => {
           <S.MenuText onPress={() => navigation.navigate("Home")}>
             Cadastro dos dados
           </S.MenuText>
-          <S.MenuText>Visualização dos riscos</S.MenuText>
+          <S.MenuText onPress={() => navigation.navigate("Visualizer")}>
+            Visualização dos riscos
+          </S.MenuText>
           <S.MenuText onPress={() => navigation.navigate("History")}>
             Histórico de Monitoramento
           </S.MenuText>

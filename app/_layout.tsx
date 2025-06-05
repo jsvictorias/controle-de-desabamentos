@@ -3,6 +3,7 @@ import { Cadastro } from "@/pages/cadastro/Cadastro";
 import { History } from "@/pages/history/History";
 import { Home } from "@/pages/home/Home";
 import { Login } from "@/pages/login/Login";
+import { Visualizer } from "@/pages/visualizer/Visualizer";
 import { Welcome } from "@/pages/welcome/Welcome";
 import { AppStackParamList } from "@/types/navigation";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -23,6 +24,7 @@ export default function RootLayout() {
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Actions" component={Actions} />
         <Stack.Screen name="History" component={History} />
+        <Stack.Screen name="Visualizer" component={Visualizer} />
       </Stack.Navigator>
     </PaperProvider>
   );
