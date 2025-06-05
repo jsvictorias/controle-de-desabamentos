@@ -3,4 +3,6 @@ export type AppStackParamList = {
   Login: undefined;
   Cadastro: undefined;
   Home: undefined;
+  Actions: undefined;
+  Menu: undefined;
 };

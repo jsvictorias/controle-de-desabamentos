@@ -1,3 +1,4 @@
+import { Actions } from "@/pages/actions/Actions";
 import { Cadastro } from "@/pages/cadastro/Cadastro";
 import { Home } from "@/pages/home/Home";
 import { Login } from "@/pages/login/Login";
@@ -19,6 +20,7 @@ export default function RootLayout() {
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Cadastro" component={Cadastro} />
         <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Actions" component={Actions} />
       </Stack.Navigator>
     </PaperProvider>
   );

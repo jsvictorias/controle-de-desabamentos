@@ -6,6 +6,7 @@ export const MenuContainer = styled.View`
   justify-content: flex-end;
   flex-direction: row;
   align-items: center;
+  z-index: 1000;  
 `;
 export const ShowItens = styled.View`
   position: absolute;
