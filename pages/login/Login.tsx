@@ -1,18 +1,28 @@
 import { Checkbox } from "@/components/checkbox/Checkbox";
 import { Input } from "@/components/input/Input";
 import { AppStackParamList } from "@/types/navigation";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useNavigation } from "@react-navigation/native";
 import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import React from "react";
+import { Text, TouchableOpacity } from "react-native";
 import * as S from "./styles";
 
 type LoginScreenNavigationProp = NativeStackNavigationProp<
   AppStackParamList,
   "Login"
 >;
-
+const clearStorage = async () => {
+  try {
+    await AsyncStorage.clear();
+    console.log("AsyncStorage limpo com sucesso!");
+  } catch (error) {
+    console.error("Erro ao limpar o AsyncStorage:", error);
+  }
+};
 export const Login = () => {
   const navigation = useNavigation<LoginScreenNavigationProp>();
+
   return (
     <S.LoginContainer>
       <Input placeholder="Cadastro" secureTextEntry={false} />
@@ -38,6 +48,9 @@ export const Login = () => {
       >
         <S.RegisterButtonText>Cadastrar</S.RegisterButtonText>
       </S.RegisterButton>
+      <TouchableOpacity onPress={clearStorage}>
+        <Text>Limpar dados</Text>
+      </TouchableOpacity>
     </S.LoginContainer>
   );
 };

@@ -129,8 +129,8 @@ export const History = () => {
                 <Animated.Image
                   source={require("../../assets/images/history.png")}
                   style={{
-                    width: 200,
-                    height: 200,
+                    width: 400,
+                    height: 400,
                     transform: [{ translateY }],
                     marginTop: 20,
                   }}
