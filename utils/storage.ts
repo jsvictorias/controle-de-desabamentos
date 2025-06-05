@@ -5,16 +5,16 @@ export const saveToStorage = async (key: string, value: any) => {
     const jsonValue = JSON.stringify(value);
     await AsyncStorage.setItem(key, jsonValue);
   } catch (e) {
-    console.error("Erro ao salvar dados:", e);
+    console.error("Error saving to storage:", e);
   }
 };
 
 export const getFromStorage = async (key: string) => {
   try {
-    const value = await AsyncStorage.getItem(key);
-    return value != null ? JSON.parse(value) : null;
+    const jsonValue = await AsyncStorage.getItem(key);
+    return jsonValue != null ? JSON.parse(jsonValue) : null;
   } catch (e) {
-    console.error("Erro ao ler dados:", e);
+    console.error("Error reading from storage:", e);
     return null;
   }
 };

@@ -1,7 +1,7 @@
 import { Checkbox } from "@/components/checkbox/Checkbox";
 import { Input } from "@/components/input/Input";
 import { MenuBar } from "@/components/menubar/MenuBar";
-import { saveToStorage } from "@/utils/storage";
+import { saveFormData } from "@/services/dataService";
 import { useState } from "react";
 import { ScrollView, Text, TouchableOpacity } from "react-native";
 import * as S from "./styles";
@@ -35,19 +35,27 @@ export const Home = () => {
       otherOptions,
     };
 
-    await saveToStorage("formData", dataToSave);
-    setFormData({
-      endereco: "",
-      regiao: "",
-      terrenoOutro: "",
-      usoSoloOutro: "",
-      distanciaConstrucao: "",
-    });
-    setOtherOptions({
-      terreno: false,
-      usoSolo: false,
-      construcao: false,
-    });
+    try {
+      await saveFormData(dataToSave);
+
+      setFormData({
+        endereco: "",
+        regiao: "",
+        terrenoOutro: "",
+        usoSoloOutro: "",
+        distanciaConstrucao: "",
+      });
+      setOtherOptions({
+        terreno: false,
+        usoSolo: false,
+        construcao: false,
+      });
+
+      alert("Dados salvos com sucesso!");
+    } catch (error) {
+      console.error("Erro ao salvar dados:", error);
+      alert("Ocorreu um erro ao salvar os dados.");
+    }
   };
 
   return (
