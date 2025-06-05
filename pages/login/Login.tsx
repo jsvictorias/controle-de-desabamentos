@@ -21,7 +21,13 @@ export const Login = () => {
       <Checkbox label="Manter Login" />
 
       <S.Button>
-        <S.ButtonText>Entrar</S.ButtonText>
+        <S.ButtonText
+          onClick={() => {
+            navigation.navigate("Home");
+          }}
+        >
+          Entrar
+        </S.ButtonText>
       </S.Button>
 
       <S.RegisterText>Não tem cadastro?</S.RegisterText>

@@ -19,7 +19,9 @@ export const Cadastro = () => {
       <Input placeholder="Confirmar Senha" secureTextEntry={false} />
 
       <S.Button>
-        <S.ButtonText>Cadastrar</S.ButtonText>
+        <S.ButtonText onClick={() => {
+            navigation.navigate("Home");
+          }}>Cadastrar</S.ButtonText>
       </S.Button>
 
       <S.RegisterText>Já tem cadastro?</S.RegisterText>
