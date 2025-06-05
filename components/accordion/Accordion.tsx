@@ -28,6 +28,7 @@ export const AccordionComponent: React.FC<AccordionComponentProps> = ({
           name={isCollapsed ? "chevron-down" : "chevron-up"}
           size={20}
           color="#000"
+          style={{ marginLeft: 10 }}
         />
       </S.Header>
 
