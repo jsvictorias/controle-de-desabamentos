@@ -5,4 +5,5 @@ export type AppStackParamList = {
   Home: undefined;
   Actions: undefined;
   Menu: undefined;
+  History: undefined;
 };

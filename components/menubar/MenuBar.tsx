@@ -28,9 +28,13 @@ export const MenuBar = () => {
 
       {isMenuVisible && (
         <S.ShowItens>
-          <S.MenuText>Cadastro dos dados</S.MenuText>
+          <S.MenuText onPress={() => navigation.navigate("Home")}>
+            Cadastro dos dados
+          </S.MenuText>
           <S.MenuText>Visualização dos riscos</S.MenuText>
-          <S.MenuText>Histórico de Monitoramento</S.MenuText>
+          <S.MenuText onPress={() => navigation.navigate("History")}>
+            Histórico de Monitoramento
+          </S.MenuText>
           <S.MenuText onPress={() => navigation.navigate("Actions")}>
             Ações de Mitigações
           </S.MenuText>
