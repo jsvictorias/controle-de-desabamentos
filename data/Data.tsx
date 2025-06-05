@@ -1,1 +1,22 @@
-export const Data = [];
+export const MockHistoryData = [
+  { umidade: "45%", inclinacao: "12 graus" },
+  { umidade: "52%", inclinacao: "10 graus" },
+  { umidade: "38%", inclinacao: "15 graus" },
+  { umidade: "60%", inclinacao: "8 graus" },
+  { umidade: "47%", inclinacao: "13 graus" },
+  { umidade: "55%", inclinacao: "11 graus" },
+  { umidade: "41%", inclinacao: "14 graus" },
+  { umidade: "50%", inclinacao: "9 graus" },
+  { umidade: "36%", inclinacao: "16 graus" },
+  { umidade: "62%", inclinacao: "7 graus" },
+  { umidade: "48%", inclinacao: "12 graus" },
+  { umidade: "53%", inclinacao: "10 graus" },
+  { umidade: "40%", inclinacao: "13 graus" },
+  { umidade: "58%", inclinacao: "11 graus" },
+  { umidade: "43%", inclinacao: "15 graus" },
+  { umidade: "49%", inclinacao: "9 graus" },
+  { umidade: "35%", inclinacao: "17 graus" },
+  { umidade: "61%", inclinacao: "8 graus" },
+  { umidade: "46%", inclinacao: "14 graus" },
+  { umidade: "56%", inclinacao: "10 graus" },
+];

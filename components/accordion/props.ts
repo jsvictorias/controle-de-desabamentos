@@ -1,4 +1,5 @@
 export interface AccordionComponentProps {
-    children: React.ReactNode;
-    title: string;
+  title: string;
+  children: React.ReactNode;
+  isWarning?: boolean;
 }
