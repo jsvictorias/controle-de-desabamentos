@@ -1,4 +1,4 @@
 export interface InputProps {
-  placeholder: string;
+  placeholder?: string;
   secureTextEntry: boolean;
 }

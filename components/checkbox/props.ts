@@ -1,3 +1,5 @@
 export interface CheckboxProps {
-    label: string;
+  label: string;
+  checked?: boolean;
+  onPress?: () => void;
 }
