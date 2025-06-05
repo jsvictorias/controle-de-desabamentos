@@ -15,7 +15,7 @@ export const Button = styled.TouchableOpacity`
   margin-bottom: 20px;
 `;
 
-export const ButtonText = styled.Text`
+export const ButtonText = styled.TouchableOpacity`
   font-size: 22px;
   font-weight: bold;
   padding: 5px 60px;
@@ -33,6 +33,6 @@ export const RegisterButton = styled.TouchableOpacity`
   border-radius: 30px;
 `;
 
-export const RegisterButtonText = styled.Text`
+export const RegisterButtonText = styled.TouchableOpacity`
   font-size: 18px;
 `;

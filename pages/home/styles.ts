@@ -17,7 +17,7 @@ export const ScrollText = styled.Text`
   font-size: 18px;
   margin-bottom: 20px;
 `;
-export const Enter = styled.TouchableOpacity`
+export const Enter = styled.Text`
   font-size: 40px;
   font-weight: 700;
   text-align: center;

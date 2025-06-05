@@ -20,25 +20,23 @@ export const Login = () => {
 
       <Checkbox label="Manter Login" />
 
-      <S.Button>
-        <S.ButtonText
-          onClick={() => {
-            navigation.navigate("Home");
-          }}
-        >
-          Entrar
-        </S.ButtonText>
+      <S.Button
+        onPress={() => {
+          navigation.navigate("Home");
+          console.log("Botão Entrar pressionado");
+        }}
+      >
+        <S.ButtonText>Entrar</S.ButtonText>
       </S.Button>
 
       <S.RegisterText>Não tem cadastro?</S.RegisterText>
-      <S.RegisterButton>
-        <S.RegisterButtonText
-          onClick={() => {
-            navigation.navigate("Cadastro");
-          }}
-        >
-          Cadastrar
-        </S.RegisterButtonText>
+      <S.RegisterButton
+        onPress={() => {
+          navigation.navigate("Cadastro");
+          console.log("Botão cadastro pressionado");
+        }}
+      >
+        <S.RegisterButtonText>Cadastrar</S.RegisterButtonText>
       </S.RegisterButton>
     </S.LoginContainer>
   );

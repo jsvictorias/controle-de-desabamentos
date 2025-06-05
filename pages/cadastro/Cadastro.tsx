@@ -18,21 +18,21 @@ export const Cadastro = () => {
       <Input placeholder="Senha" secureTextEntry={false} />
       <Input placeholder="Confirmar Senha" secureTextEntry={false} />
 
-      <S.Button>
-        <S.ButtonText onClick={() => {
-            navigation.navigate("Home");
-          }}>Cadastrar</S.ButtonText>
+      <S.Button
+        onPress={() => {
+          navigation.navigate("Home");
+        }}
+      >
+        <S.ButtonText>Cadastrar</S.ButtonText>
       </S.Button>
 
       <S.RegisterText>Já tem cadastro?</S.RegisterText>
-      <S.RegisterButton>
-        <S.RegisterButtonText
-          onClick={() => {
-            navigation.navigate("Login");
-          }}
-        >
-          Entrar
-        </S.RegisterButtonText>
+      <S.RegisterButton
+        onPress={() => {
+          navigation.navigate("Login");
+        }}
+      >
+        <S.RegisterButtonText>Entrar</S.RegisterButtonText>
       </S.RegisterButton>
     </S.CadastroContainer>
   );
