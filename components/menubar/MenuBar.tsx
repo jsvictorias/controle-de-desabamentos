@@ -28,7 +28,7 @@ export const MenuBar = () => {
 
       {isMenuVisible && (
         <S.ShowItens>
-          <S.MenuText onPress={() => navigation.navigate("Home")}>
+          <S.MenuText onPress={() => navigation.navigate("Cadastro")}>
             Cadastro dos dados
           </S.MenuText>
           <S.MenuText onPress={() => navigation.navigate("Visualizer")}>
@@ -39,6 +39,9 @@ export const MenuBar = () => {
           </S.MenuText>
           <S.MenuText onPress={() => navigation.navigate("Actions")}>
             Ações de Mitigações
+          </S.MenuText>
+          <S.MenuText onPress={() => navigation.navigate("Welcome")}>
+            Home
           </S.MenuText>
         </S.ShowItens>
       )}

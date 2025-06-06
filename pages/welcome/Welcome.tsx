@@ -1,4 +1,5 @@
 import { AppStackParamList } from "@/types/navigation";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useNavigation } from "@react-navigation/native";
 import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import React, { useEffect, useRef } from "react";
@@ -30,6 +31,14 @@ export const Welcome = () => {
       ])
     ).start();
   }, [translateY]);
+  const clearStorage = async () => {
+    try {
+      await AsyncStorage.clear();
+      console.log("AsyncStorage limpo com sucesso!");
+    } catch (error) {
+      console.error("Erro ao limpar o AsyncStorage:", error);
+    }
+  };
 
   return (
     <S.WelcomeContainer>
@@ -49,9 +58,13 @@ export const Welcome = () => {
         oferecendo alertas preventivos e ações de mitigação.
       </S.WelcomeText>
 
-      <S.WelcomeEnter onPress={() => navigation.navigate("Login")}>
-        ENTRAR
+      <S.WelcomeEnter onPress={() => navigation.navigate("Cadastro")}>
+        <S.WelcomeText>ENTRAR</S.WelcomeText>
       </S.WelcomeEnter>
+
+      <S.WelcomeClean onPress={clearStorage}>
+        <S.WelcomeText>Limpar dados</S.WelcomeText>
+      </S.WelcomeClean>
     </S.WelcomeContainer>
   );
 };

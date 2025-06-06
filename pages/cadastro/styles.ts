@@ -1,37 +1,26 @@
 import styled from "styled-components/native";
 
-export const CadastroContainer = styled.View`
-  flex: 1;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  background-color: #e6f4ff;
+export const HomeTitle = styled.Text`
+  text-align: center;
+  font-size: 40px;
+  font-weight: 700;
+  margin-top: 50px;
 `;
-export const Button = styled.TouchableOpacity`
-  background-color: #fff;
-  padding: 12px 32px;
-  border-radius: 30px;
-  align-items: center;
+export const HomeContainer = styled.ScrollView`
+  padding: 10% 5%;
+  background-color: #dff1ff;
+  align-self: center;
+  border-radius: 15px;
+  margin-top: 40px;
+`;
+export const ScrollText = styled.Text`
+  font-size: 18px;
   margin-bottom: 20px;
 `;
-
-export const ButtonText = styled.Text`
-  font-size: 22px;
-  font-weight: bold;
-  padding: 5px 60px;
-`;
-export const RegisterText = styled.Text`
-  font-size: 14px;
-  margin-bottom: 15px;
-`;
-
-export const RegisterButton = styled.TouchableOpacity`
-  border: 4px solid #fff;
-  background-color: #d0eaff;
-  padding: 12px 32px;
-  border-radius: 30px;
-`;
-
-export const RegisterButtonText = styled.Text`
-  font-size: 18px;
+export const Enter = styled.Text`
+  font-size: 40px;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
 `;

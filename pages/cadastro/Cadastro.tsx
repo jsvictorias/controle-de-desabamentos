@@ -1,39 +1,120 @@
+import { Checkbox } from "@/components/checkbox/Checkbox";
 import { Input } from "@/components/input/Input";
-import { AppStackParamList } from "@/types/navigation";
-import { useNavigation } from "@react-navigation/native";
-import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { MenuBar } from "@/components/menubar/MenuBar";
+import { useCadastroForm } from "@/hooks/useCadastroForm";
+import { ScrollView, Text, TouchableOpacity } from "react-native";
 import * as S from "./styles";
 
 export const Cadastro = () => {
-  type CadastroScreenNavigationProp = NativeStackNavigationProp<
-    AppStackParamList,
-    "Login"
-  >;
-  const navigation = useNavigation<CadastroScreenNavigationProp>();
+  const {
+    formData,
+    otherOptions,
+    handleInputChange,
+    toggleOption,
+    handleSubmit,
+  } = useCadastroForm();
+
   return (
-    <S.CadastroContainer>
-      <Input placeholder="Nome" secureTextEntry={false} />
-      <Input placeholder="Cadastro (escolha números)" secureTextEntry={false} />
-      <Input placeholder="Email" secureTextEntry={false} />
-      <Input placeholder="Senha" secureTextEntry={false} />
-      <Input placeholder="Confirmar Senha" secureTextEntry={false} />
+    <ScrollView style={{ backgroundColor: "#fff" }}>
+      <MenuBar />
+      <S.HomeTitle>Cadastro de Dados</S.HomeTitle>
+      <S.HomeContainer>
+        <S.ScrollText>
+          Endereço ou nome da propriedade/local monitorado:
+        </S.ScrollText>
+        <Input
+          secureTextEntry={false}
+          value={formData.endereco}
+          onChangeText={(text) => handleInputChange("endereco", text)}
+        />
 
-      <S.Button
-        onPress={() => {
-          navigation.navigate("Home");
-        }}
-      >
-        <S.ButtonText>Cadastrar</S.ButtonText>
-      </S.Button>
+        <S.ScrollText>
+          Região e localidade (ex: São Paulo, Zona Leste)
+        </S.ScrollText>
+        <Input
+          secureTextEntry={false}
+          value={formData.regiao}
+          onChangeText={(text) => handleInputChange("regiao", text)}
+        />
 
-      <S.RegisterText>Já tem cadastro?</S.RegisterText>
-      <S.RegisterButton
-        onPress={() => {
-          navigation.navigate("Login");
-        }}
-      >
-        <S.RegisterButtonText>Entrar</S.RegisterButtonText>
-      </S.RegisterButton>
-    </S.CadastroContainer>
+        <S.ScrollText>Tipo de Terreno:</S.ScrollText>
+        <Checkbox label="Morro/Encosta" />
+        <Checkbox label="Plano" />
+        <Checkbox label="Áreas urbanas com corte/aterro" />
+        <Checkbox
+          label="Outro"
+          checked={otherOptions.terreno}
+          onPress={() => toggleOption("terreno")}
+        />
+        {otherOptions.terreno && (
+          <Input
+            secureTextEntry={false}
+            placeholder="Descreva em poucas palavras"
+            value={formData.terrenoOutro}
+            onChangeText={(text) => handleInputChange("terrenoOutro", text)}
+          />
+        )}
+
+        <S.ScrollText>Uso do solo:</S.ScrollText>
+        <Checkbox label="Residencial" />
+        <Checkbox label="Agrícola" />
+        <Checkbox label="Florestal" />
+        <Checkbox label="Industrial" />
+        <Checkbox
+          label="Outro"
+          checked={otherOptions.usoSolo}
+          onPress={() => toggleOption("usoSolo")}
+        />
+        {otherOptions.usoSolo && (
+          <Input
+            secureTextEntry={false}
+            placeholder="Descreva em poucas palavras"
+            value={formData.usoSoloOutro}
+            onChangeText={(text) => handleInputChange("usoSoloOutro", text)}
+          />
+        )}
+
+        <S.ScrollText>
+          Existe construção ou casa próxima à área monitorada?
+        </S.ScrollText>
+        <Checkbox
+          label="Sim"
+          checked={otherOptions.construcao}
+          onPress={() => toggleOption("construcao")}
+        />
+        {otherOptions.construcao && (
+          <Input
+            secureTextEntry={false}
+            placeholder="A que distância? (em metros)"
+            value={formData.distanciaConstrucao}
+            onChangeText={(text) =>
+              handleInputChange("distanciaConstrucao", text)
+            }
+          />
+        )}
+        <Checkbox label="Não" />
+
+        <S.ScrollText>
+          Existe histórico de deslizamentos ou movimentação de terra na região?
+        </S.ScrollText>
+        <Checkbox label="Sim" />
+        <Checkbox label="Não" />
+        <Checkbox label="Não sei" />
+      </S.HomeContainer>
+
+      <TouchableOpacity onPress={handleSubmit}>
+        <Text
+          style={{
+            fontSize: 40,
+            fontWeight: "700",
+            textAlign: "center",
+            marginTop: 50,
+            marginBottom: 50,
+          }}
+        >
+          Cadastrar
+        </Text>
+      </TouchableOpacity>
+    </ScrollView>
   );
 };

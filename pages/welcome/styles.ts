@@ -20,11 +20,19 @@ export const WelcomeTitle = styled.Text`
 export const WelcomeText = styled.Text`
   font-size: 20px;
   text-align: center;
-  margin-top: 10px;
-  width: 90%;
 `;
 export const WelcomeEnter = styled.TouchableOpacity`
   font-size: 30px;
   font-weight: 700;
-  margin-top: 8%;
+  margin-top: 5%;
+  background-color: rgb(137, 196, 245);
+  padding: 20px;
+  border-radius: 15px;
+`;
+export const WelcomeClean = styled.TouchableOpacity`
+  font-weight: 700;
+  margin-top: 3%;
+  background-color: rgb(158, 192, 220);
+  padding: 20px;
+  border-radius: 15px;
 `;
