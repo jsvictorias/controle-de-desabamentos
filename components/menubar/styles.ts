@@ -1,12 +1,12 @@
 import styled from "styled-components/native";
 
 export const MenuContainer = styled.View`
-  height: 10vh;
+  height: 10%;
   background-color: #4390dd;
   justify-content: flex-end;
   flex-direction: row;
   align-items: center;
-  z-index: 1000;  
+  z-index: 1000;
 `;
 export const ShowItens = styled.View`
   position: absolute;
