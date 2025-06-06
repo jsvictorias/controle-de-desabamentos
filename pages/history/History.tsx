@@ -87,42 +87,47 @@ export const History = () => {
         contentContainerStyle={{ alignItems: "center", paddingBottom: 50 }}
       >
         <S.HistoryContainer>
-          <S.HistoryTitle>Histórico de Monitoramento</S.HistoryTitle>
-
           <View style={{ marginTop: 50, width: "80%" }}>
             {locations.length > 0 ? (
-              locations.map((location, index) => {
-                const sensorItem = sensorData[index % sensorData.length];
-                const isWarning = shouldShowWarning(sensorItem);
+              <>
+                <S.HistoryTitle>Histórico de Monitoramento</S.HistoryTitle>
 
-                return (
-                  <View key={index} style={{ marginBottom: 20 }}>
-                    <AccordionComponent title={location} isWarning={isWarning}>
-                      <Text style={{ marginBottom: 5 }}>
-                        última atualização: 1min
-                      </Text>
-                      <View style={{ marginBottom: 10 }}>
-                        <Text
-                          style={{
-                            marginBottom: 5,
-                            color: isWarning ? "#FF0000" : "#000000",
-                          }}
-                        >
-                          🌱 Umidade: {sensorItem.umidade}
+                {locations.map((location, index) => {
+                  const sensorItem = sensorData[index % sensorData.length];
+                  const isWarning = shouldShowWarning(sensorItem);
+
+                  return (
+                    <View key={index} style={{ marginBottom: 20 }}>
+                      <AccordionComponent
+                        title={location}
+                        isWarning={isWarning}
+                      >
+                        <Text style={{ marginBottom: 5 }}>
+                          última atualização: 1min
                         </Text>
-                        <Text
-                          style={{
-                            marginBottom: 5,
-                            color: isWarning ? "#FF0000" : "#000000",
-                          }}
-                        >
-                          ⛰️ Inclinação: {sensorItem.inclinacao}
-                        </Text>
-                      </View>
-                    </AccordionComponent>
-                  </View>
-                );
-              })
+                        <View style={{ marginBottom: 10 }}>
+                          <Text
+                            style={{
+                              marginBottom: 5,
+                              color: isWarning ? "#FF0000" : "#000000",
+                            }}
+                          >
+                            🌱 Umidade: {sensorItem.umidade}
+                          </Text>
+                          <Text
+                            style={{
+                              marginBottom: 5,
+                              color: isWarning ? "#FF0000" : "#000000",
+                            }}
+                          >
+                            ⛰️ Inclinação: {sensorItem.inclinacao}
+                          </Text>
+                        </View>
+                      </AccordionComponent>
+                    </View>
+                  );
+                })}
+              </>
             ) : (
               <View style={{ alignItems: "center" }}>
                 <S.HistoryTitle>Nenhum dado adicionado...</S.HistoryTitle>

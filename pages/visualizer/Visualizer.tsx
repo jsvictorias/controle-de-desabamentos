@@ -117,39 +117,43 @@ export const Visualizer = () => {
         contentContainerStyle={{ alignItems: "center", paddingBottom: 50 }}
       >
         <S.VisualizerContainer>
-          <S.VisualizerTitle>
-            Visualização dos Principais Riscos
-          </S.VisualizerTitle>
-
           {locationsData.length > 0 ? (
-            locationsData.map((data, index) => (
-              <View
-                key={index}
-                style={{ marginBottom: 20, width: "80%", marginTop: 40 }}
-              >
-                <AccordionComponent title={data.endereco}>
-                  <Text style={{ marginBottom: 5 }}>
-                    Última atualização: {formatDate(data.createdAt)}
-                  </Text>
-                  <Text style={{ marginBottom: 5 }}>Região: {data.regiao}</Text>
+            <>
+              <S.VisualizerTitle>
+                Visualização dos Principais Riscos
+              </S.VisualizerTitle>
 
-                  {getRiskMessages(data).map((message, i) => (
-                    <Text
-                      key={i}
-                      style={{
-                        marginBottom: 10,
-                        color: message.includes("Nenhum risco")
-                          ? "green"
-                          : "red",
-                        fontWeight: "bold",
-                      }}
-                    >
-                      {message}
+              {locationsData.map((data, index) => (
+                <View
+                  key={index}
+                  style={{ marginBottom: 20, width: "80%", marginTop: 40 }}
+                >
+                  <AccordionComponent title={data.endereco}>
+                    <Text style={{ marginBottom: 5 }}>
+                      Última atualização: {formatDate(data.createdAt)}
                     </Text>
-                  ))}
-                </AccordionComponent>
-              </View>
-            ))
+                    <Text style={{ marginBottom: 5 }}>
+                      Região: {data.regiao}
+                    </Text>
+
+                    {getRiskMessages(data).map((message, i) => (
+                      <Text
+                        key={i}
+                        style={{
+                          marginBottom: 10,
+                          color: message.includes("Nenhum risco")
+                            ? "green"
+                            : "red",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        {message}
+                      </Text>
+                    ))}
+                  </AccordionComponent>
+                </View>
+              ))}
+            </>
           ) : (
             <View style={{ alignItems: "center" }}>
               <S.VisualizerTitle>Nenhum dado adicionado...</S.VisualizerTitle>
